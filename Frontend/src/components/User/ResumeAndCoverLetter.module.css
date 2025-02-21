@@ -1,0 +1,12 @@
+.resumeAndCoverLetter {
+  grid-column: 1 / -1;
+}
+
+.fileSection {
+  margin-bottom: 20px;
+}
+
+.fileInput {
+  display: none;
+}
+

@@ -1,0 +1,91 @@
+.applied-jobs-container {
+  margin: 2rem;
+}
+
+.applied-jobs-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.applied-jobs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.applied-job-card {
+  border: 1px solid var(--text-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.applied-job-card h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.applied-job-card p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+}
+
+.job-icons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.job-icons .fa-eye {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.job-icons .fa-eye:hover {
+  color: var(--secondary-color);
+}
+
+
+.job-details {
+  flex-grow: 1;
+}
+
+.status-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  cursor: default;
+}
+
+.selected {
+  background-color: green;
+}
+
+.rejected {
+  background-color: red;
+}
+
+.interviewing {
+  background-color: orange;
+}
+
+.reviewing {
+  background-color: blue;
+}
+
+.pending {
+  background-color: gray;
+}
+
+.applied {
+  background-color: purple;
+}

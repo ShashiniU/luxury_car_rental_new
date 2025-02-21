@@ -1,0 +1,10 @@
+.userDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.userDetails form {
+  display: flex;
+  flex-direction: column;
+}
+

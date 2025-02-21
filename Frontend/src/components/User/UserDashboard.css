@@ -1,0 +1,97 @@
+.user-dashboard {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 2rem;
+  background-color: var(--surface-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+
+
+
+.profile-upload-label {
+  margin-bottom: 0.5rem;
+}
+
+input[type="file"] {
+  margin-bottom: 1rem;
+}
+
+.file-name {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.info-section {
+  background-color: var(--surface-color); /* Background adapts to theme */
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+
+.info-section h3 {
+  color: var(--primary-color);
+}
+
+.info-section p {
+  margin-bottom: 0.5rem;
+}
+.profile-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-upload-label {
+  margin-bottom: 0.5rem;
+}
+
+.profile-picture-container {
+  width: 250px; /* Set width for passport size */
+  height: 250px; /* Set height for passport size */
+  border: 2px solid var(--primary-color); /* Border color */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface-color); /* Background color */
+}
+
+.profile-picture {
+  width: 100%; /* Make image fill the container */
+  height: auto; 
+  object-fit: cover;/* Maintain aspect ratio */
+}
+
+.placeholder {
+  color: var(--text-secondary);
+  font-weight: bold;
+}
+
+.save-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  cursor: pointer ;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  opacity: 0.9;
+}
+
