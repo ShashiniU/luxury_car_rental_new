@@ -1,133 +1,359 @@
+:root {
+  --primary: #8a2be2;
+  --primary-light: #9d4ee7;
+  --primary-dark: #6b24b2;
+  --secondary: #f8f9fe;
+  --accent: #ff4757;
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --bg-white: #ffffff;
+  --bg-light: #f7fafc;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.h2{
+  align-content: center;
+}
+
 .dashboard-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+  max-width: 1200px;
+  margin: 0.5rem auto;
+  background: var(--bg-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+
+}
+
+.dashboard-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  padding: 0.5rem;
+  color: white;
+ 
+}
+
+.dashboard-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+}
+
+.dashboard-tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.tab-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.tab-button.active {
+  background: white;
+  color: var(--primary);
+}
+
+/* Profile Section */
+.profile-section,
+.add-car-section,
+.my-cars-section {
+  padding: 2rem;
+}
+
+.profile-section h3,
+.add-car-section h3,
+.my-cars-section h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 0.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--bg-light);
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
+  background: white;
+}
+
+.form-row {
+  display: grid ;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+/* Buttons */
+.update-profile-button,
+.add-car-button,
+.add-car-cta {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.update-profile-button:hover,
+.add-car-button:hover,
+.add-car-cta:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* File Upload */
+.image-upload {
+  margin-top: 0.5rem;
+}
+
+.file-label {
+  /* display: inline-flex; */
+ 
+  transition: all 0.2s ease;
+  background: rgb(98, 9, 241);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.file-label:hover {
+  background: var(--primary);
+}
+
+.file-info {
+  margin-bottom: 10px;
+  margin-left: 1rem;
+  color: var(--text-secondary);
+}
+
+.file-button-section{
+  margin-bottom: 30px;
+}
+.image-previews {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.image-preview {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Car List */
+.car-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.car-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  background: var(--bg-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.car-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.car-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.car-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.car-item:hover .car-image img {
+  transform: scale(1.05);
+}
+
+.car-details {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-details h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.car-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.car-location {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.car-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.edit-button,
+.delete-button {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-button {
+  background: var(--primary-light);
+  color: white;
+  border: none;
+}
+
+.edit-button:hover {
+  background: var(--primary);
+}
+
+.delete-button {
+  background: var(--accent);
+  color: white;
+  border: none;
+}
+
+.delete-button:hover {
+  background: #ff3545;
+}
+
+.no-cars {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--secondary);
+  border-radius: 12px;
+}
+
+.no-cars p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    margin: 1rem;
   }
-  
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .car-item {
+    grid-template-columns: 1fr;
+  }
+
+  .car-image {
+    height: 200px;
+  }
+
+  .dashboard-tabs {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .tab-button {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
   .dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-  
-  .dashboard-header h2 {
-    font-size: 2rem;
-    color: var(--primary-color);
-  }
-  
-  .create-job-button {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .create-job-button:hover {
-    opacity: 0.9;
-  }
-  
-  .job-listings {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .job-card {
-    background-color: var(--surface-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
-  .job-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+  .profile-section,
+  .add-car-section,
+  .my-cars-section {
+    padding: 1.5rem;
   }
-  
-  .job-card h3 {
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
+
+  .car-actions {
+    flex-direction: column;
   }
-  
-  .job-card p {
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-  }
-  
-  .icons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-  
-  .icons svg {
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    transition: color 0.3s ease;
-  }
-  
-  .icons svg:hover {
-    color: var(--primary-color);
-  }
-  
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .job-form {
-    background-color: var(--surface-color);
-    padding: 2rem;
-    border-radius: 8px;
+
+  .edit-button,
+  .delete-button {
     width: 100%;
-    max-width: 500px;
+    text-align: center;
   }
-  
-  .job-form input,
-  .job-form textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--text-secondary);
-    border-radius: 4px;
-    font-size: 1rem;
-  }
-  
-  .job-form button {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-right: 1rem;
-  }
-  
-  .job-form button:hover {
-    opacity: 0.9;
-  }
-  
-  .job-form button:last-child {
-    background-color: var(--text-secondary);
-  }
-  
-  
+}
+

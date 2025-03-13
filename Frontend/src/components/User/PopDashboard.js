@@ -1,7 +1,6 @@
 import { useState } from "react"
 import ProfilePicture from "./ProfilePicture"
 import UserDetails from "./UserDetails"
-import ResumeAndCoverLetter from "./ResumeAndCoverLetter"
 import styles from "./Dashboard.module.css"
 import Modal from "react-modal";
 import axios from "axios";
@@ -20,13 +19,6 @@ const PopDashboard = ({ isOpen, onClose, jobid }) => {
 
   const updateProfilePicture = (newPicture) => {
     setUser({ ...user.user, profilePicture: newPicture })
-  }
-
-  const updateResume = (newResume) => {
-    setUser({ ...user.user, resume: newResume })
-  }
-  const updatecoverLetter = (newCover) => {
-    setUser({ ...user.user, coverLetter: newCover })
   }
 
   const closeModal = () => {       
@@ -55,12 +47,7 @@ const handleSubmit = async () => {
     <div className={styles.dashboard}>
       <ProfilePicture profilePicture={user.user?.profilePicture} updateProfilePicture={updateProfilePicture} />
       <UserDetails user={user.user} updateUserDetails={updateUserDetails} />
-      <ResumeAndCoverLetter
-        resume={user.user?.resume}
-        coverLetter={user.user?.coverletter}
-        updateresume={updateResume}
-        updatecoverLetter={updatecoverLetter}
-      />
+    
     </div>
       <div>
       <button onClick={handleSubmit}>Apply Now</button>

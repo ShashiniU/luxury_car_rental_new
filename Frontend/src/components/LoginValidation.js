@@ -5,15 +5,18 @@ Modal.setAppElement("#root"); // Required for accessibility
 
 const AuthModal = ({ isOpen, onClose, onLogin }) => {
     const [isLogin, setIsLogin] = useState(true);
+    const [roles, setRoles] = useState([]);  // To store the roles fetched from the backend
+    const [message, setMessage] = useState("");
 
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         password: "",
+        role: "",
        
     });
 
-    const [message, setMessage] = useState("");
+    
 
 
 
@@ -28,6 +31,7 @@ const AuthModal = ({ isOpen, onClose, onLogin }) => {
     }, [isOpen]);
 
     const handleSubmit = async (e) => {
+        
         e.preventDefault();
         try {
                         
@@ -65,6 +69,17 @@ const AuthModal = ({ isOpen, onClose, onLogin }) => {
         onClose();
     };
 
+    useEffect(() => {
+        // Set hardcoded roles
+        setRoles(["owner", "renter"]);
+    
+        // Clear message when modal is closed
+        if (!isOpen) {
+            setMessage("");
+        }
+    }, [isOpen]);
+    
+
     return (
         <Modal isOpen={isOpen} onRequestClose={closeModal} className="modal-content" overlayClassName="modal-overlay">
             <h2>{isLogin ? "Login" : "Sign Up"}</h2>
@@ -75,9 +90,24 @@ const AuthModal = ({ isOpen, onClose, onLogin }) => {
                 )}
                 <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
                 <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-            
-                   
-               
+                {!isLogin && (
+                       <select name="role" onChange={handleChange} required>
+                       <option value="" disabled selected>
+                           You are a...
+                       </option>
+                       {roles.length > 0 ? (
+                           roles.map((role) => (
+                               <option key={role} value={role}>
+                                   {role.charAt(0).toUpperCase() + role.slice(1)}  {/* Capitalize for display */}
+                               </option>
+                           ))
+                       ) : (
+                           <option>Loading roles...</option>
+                       )}
+                   </select>
+                )}
+             
+   
                 <button type="submit">{isLogin ? "Login" : "Sign Up"}</button>
             </form>
             <p onClick={() => setIsLogin(!isLogin)} className="toggle-auth">

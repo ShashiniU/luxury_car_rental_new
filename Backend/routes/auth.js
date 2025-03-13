@@ -8,8 +8,8 @@ const User = require("../models/User")
 router.post("/register", async (req, res) => {
   
   try {
-    console.log(req)
-    const { name, email, password } = req.body
+  
+    const { name, email, password, role } = req.body
 
     // Check if user already exists
     let user = await User.findOne({ email })
@@ -25,7 +25,7 @@ console.log("findOne:", user)
       name,
       email,
       password,
-      role: 'renter',  // or other roles ('owner', 'admin')
+      role,  // or other roles ('owner', 'admin')
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -37,7 +37,7 @@ console.log("findOne:", user)
    // Save user and catch any validation errors
    try {
     var response = await user.save();
-    console.log("response:", response);
+   
   } catch (err) {
     console.error("Validation error:", err);
     res.status(500).send("Server error");
@@ -55,7 +55,7 @@ console.log("findOne:", user)
     jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" }, (err, token) => {
       if (err) throw err;
       const {  ...userData } = user.toObject();
-      console.log(user.toObject())
+    
 
       res.json({ token , user: userData})
     })
@@ -101,5 +101,38 @@ router.post("/login", async (req, res) => {
   }
 })
 
+// Get user by ID
+router.get('/user/:id', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.json(user);
+  } catch (error) {
+    console.error('Error fetching user details:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+});
+
+// Update user
+router.put('/users/:id', async (req, res) => {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    
+    res.json(updatedUser);
+  } catch (error) {
+    console.error('Error updating user:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+});
 module.exports = router
 

@@ -37,7 +37,7 @@ input[type="file"] {
 
 .info-section {
   background-color: var(--surface-color); /* Background adapts to theme */
-  padding: 1.5rem;
+  padding: 0.8rem;
   border-radius: 8px;
 }
 
