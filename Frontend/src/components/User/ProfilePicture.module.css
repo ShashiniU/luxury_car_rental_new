@@ -1,0 +1,62 @@
+/* ... (keep your existing styles) ... */
+
+.profile-section {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-upload-label {
+  margin-bottom: 0.5rem;
+}
+
+.profile-picture-container {
+  width: 250px;
+  height: 180px; /* Adjusted for oval shape */
+  border: 2px solid var(--primary-color);
+  border-radius: 50% / 70%; /* Creates oval shape */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface-color);
+  position: relative;
+}
+
+.profile-picture {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ensures the full image is visible */
+}
+
+.placeholder {
+  color: var(--text-secondary);
+  font-weight: bold;
+}
+
+.edit-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  opacity: 0.9;
+}
+
+/* ... (keep your existing styles) ... */
+
