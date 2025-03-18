@@ -141,7 +141,9 @@ function App() {
   <Route path="/" element={
      
       <Home />
+      
        }/>
+       
        {/* Catch-All Route */}
        <Route path="*" element={<Navigate to="/" />} />
        <Route path="/cars" element={<CarListing />} />
