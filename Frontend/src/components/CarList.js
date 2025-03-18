@@ -104,10 +104,29 @@ const CarList = () => {
     }));
   };
 
-  const handleCompleteOrder = (e) => {
+    const handleCompleteOrder =async (e) => {
     e.preventDefault();
-    // Here you would typically send the order to your backend
-    // For now, we'll just simulate a successful order
+    try {
+      // Assuming the user is logged in and you have the user ID
+      const userId = user._id; // Assuming user object contains an '_id' field
+      const orderData = {
+        userId,
+        carId: selectedCar._id,
+        contactInfo,
+        scheduledDate,
+        scheduledTime,
+        paymentInfo,
+      };
+  
+      const response = await axios.post('http://localhost:5000/api/orders/orders', orderData);
+  
+      if (response.data.message === 'Order created successfully') {
+        setOrderComplete(true);
+        console.log('Order placed:', response.data.order);
+      }
+    } catch (error) {
+      console.error('Error completing order:', error);
+    }
     setOrderComplete(true);
     // Add to cart logic would go here
     console.log("Order placed for:", selectedCar);
